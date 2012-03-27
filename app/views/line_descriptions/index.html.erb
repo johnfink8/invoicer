@@ -1,0 +1,21 @@
+<h1>Listing Descriptions</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Rate</th>
+    <th></th>
+  </tr>
+
+<% @line_descriptions.each do |line_description| %>
+  <tr>
+    <td><%= line_description.title %></td>
+    <td><%= line_description.rate %></td>
+    <td><%= link_to 'Edit', edit_line_description_path(line_description) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Line description', new_line_description_path %>

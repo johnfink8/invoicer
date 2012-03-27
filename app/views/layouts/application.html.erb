@@ -9,14 +9,21 @@
 </head>
 <body>
 <div class="wrapper">
-    <% unless @pdf %>
-  <ul class="hmenu">
+<% unless @pdf %>
+  <ul class="hmenu right">
     <%= render 'shared/navigation.html.erb' %>
   </ul>
   <%- flash.each do |name, msg| -%>
     <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
   <%- end -%>
-    <% end %>
+  <div style="clear:both">&nbsp;</div>
+  <ul class="hmenu">
+      <li><%=link_to "Invoices", invoices_path %></li>
+      <li><%=link_to "Contacts", contacts_path %></li>
+      <li><%=link_to "Descriptions", line_descriptions_path %></li>
+  </ul>
+  <div style="clear:both">&nbsp;</div>
+<% end %>
 <%= yield %>
 
 </div>

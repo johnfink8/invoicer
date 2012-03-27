@@ -1,0 +1,2 @@
+module LineDescriptionsHelper
+end
