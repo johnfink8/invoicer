@@ -1,0 +1,27 @@
+<h1>Listing invoices</h1>
+
+<table>
+  <tr>
+    <th>Sender</th>
+    <th>Recipient</th>
+    <th>Invoice ID</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @invoices.each do |invoice| %>
+  <tr>
+    <td><%= invoice.sender.name if invoice.sender %></td>
+    <td><%= invoice.recipient.name if invoice.recipient %></td>
+    <td><%= invoice.invoiceid %></td>
+    <td><%= link_to 'Show', invoice %></td>
+    <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+    <td><%= link_to 'Destroy', invoice, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Invoice', new_invoice_path %>

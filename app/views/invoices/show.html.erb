@@ -1,0 +1,261 @@
+<% content_for :head do %>
+  <meta name="pdfkit-page_size" content="Letter" />
+<% end %>
+<% if @html then %>
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %> | 
+<%= link_to 'PDF', params.merge(:format => :pdf) %>
+
+<% end %>
+<style type="text/css">
+    ol{margin:0;padding:0}
+    p{margin:0}
+    table{width:780px}
+    table.outside td {border:none}
+    table.noborder td {border:none}
+    table td.bbottom {border-bottom: 1px solid}
+    table td.bleft {border-left: 1px solid}
+    table td.bright {border-right: 1px solid}
+    .bigCell{vertical-align:top;    width:344px;border-style:solid;border-color:#000000;border-width:1px;padding:0pt 5.4pt 0pt 5.4pt}
+    table.outside {border:1px solid}
+    th.c9 {border-width:2px;border-style:solid}
+    th.c14 {border-width:2px;border-style:solid}
+    .c9{vertical-align:middle;width:344px;border-style:solid;border-bottom: none;border-color:#000000;border-width:1px;padding:2.2pt 5.8pt 2.2pt 5.8pt}
+    .c11{vertical-align:bottom;width:540pt;border-style:solid;border-color:#000000;border-width:1px;padding:5.8pt 5.8pt 5.8pt 5.8pt}
+    .c2{vertical-align:middle;width:77pt;border-style:solid;border-color:#000000;border-width:1px;padding:2.2pt 10.8pt 2.2pt 10.8pt}
+    .c17{vertical-align:middle;width:540pt;border-style:solid;border-color:#000000;border-width:1px;padding:0pt 5.4pt 0pt 5.4pt}
+    .c5{vertical-align:top;width:311pt;border-style:solid;border-color:#000000;border-width:1px;padding:2.2pt 5.8pt 2.2pt 5.8pt}
+    .c0 {vertical-align:middle;width:77px;border-style:solid;border-color:#000000;border-width:1px;padding:2.2pt 10.8pt 2.2pt 10.8pt}
+    .c14{vertical-align:middle;width:77px;border-style:solid;border-color:#000000;border-width:1px;padding:2.2pt 5.8pt 2.2pt 5.8pt}
+    .c23{vertical-align:middle;width:77px;border-style:solid;border-color:#000000;border-width:1px;padding:2.2pt 5.8pt 2.2pt 5.8pt}
+    .c24{vertical-align:middle;width:12pt;border-style:solid;border-color:#000000;border-width:1px;padding:2.2pt 10.8pt 2.2pt 10.8pt}
+    .c21{max-width:540pt;background-color:#ffffff;padding:36pt 36pt 36.7pt 36pt}
+    .c12{font-size:11pt;font-family:Arial}
+    .c1{height:8pt;direction:ltr}
+    .c10{font-size:12pt;font-weight:bold}
+    .c16{font-weight:bold}
+    .c18{line-height:1.15}
+    .c8{height:0pt}
+    .c4{direction:ltr}
+    .right{text-align:right}
+    .c20{padding-top:7pt}
+    .c3{border-collapse:collapse}
+    .c7{text-align:center}
+    .title{padding-top:12pt;line-height:1.0999999999999999;text-align:center;color:#000000;font-size:16pt;font-family:Arial;font-weight:bold;padding-bottom:3pt}
+    .subtitle{padding-top:0pt;line-height:1.0999999999999999;text-align:center;color:#000000;font-size:8pt;font-family:Arial;padding-bottom:3pt}
+    body{color:#000000;font-size:8pt;font-family:Tahoma}
+    h1{padding-top:0pt;line-height:1.0999999999999999;text-align:right;color:#808080;font-size:20pt;font-family:Tahoma;font-weight:bold;padding-bottom:0pt}
+    h2{padding-top:0pt;line-height:1.0999999999999999;text-align:left;color:#000000;font-size:8pt;font-family:Tahoma;font-weight:bold;padding-bottom:0pt}
+    h3{padding-top:0pt;line-height:1.0999999999999999;text-align:left;color:#000000;font-style:italic;font-size:8pt;font-family:Tahoma;padding-bottom:0pt}
+    h4{padding-top:12pt;line-height:1.0999999999999999;text-align:left;color:#000000;font-size:14pt;font-family:Tahoma;font-weight:bold;padding-bottom:3pt}
+    h5{padding-top:12pt;line-height:1.0999999999999999;text-align:left;color:#000000;font-style:italic;font-size:13pt;font-family:Tahoma;font-weight:bold;padding-bottom:3pt}
+    h6{padding-top:12pt;line-height:1.0999999999999999;text-align:left;color:#000000;font-size:11pt;font-family:Tahoma;font-weight:bold;padding-bottom:3pt}
+</style>
+
+<div class="c21">
+    <p>
+        <span class="c12">
+        </span>
+    </p>
+    <table cellpadding="0" cellspacing="0" class="c3 noborder">
+        <tbody>
+            <tr class="c8">
+                <td class="bigCell">
+                    <p class="c4 c20">
+                        <span class="c10"><%= @invoice.sender.name %></span>
+                    </p>
+                    <h3 class="c1">
+                        <span class="c10">
+                        </span>
+                    </h3>
+                    <p class="c1">
+                        <span class="c10">
+                        </span>
+                    </p>
+                    <p class="c4">
+                        <span><%= @invoice.sender.address_1 %></span>
+                    </p>
+                    <p class="c4">
+                        <span><%= @invoice.sender.city %>, <%= @invoice.sender.state %> &nbsp;<%= @invoice.sender.zip %></span>
+                    </p>
+                </td>
+                <td class="bigCell">
+                    <h1 class="c4">
+                        <span>INVOICE</span>
+                    </h1>
+                </td>
+            </tr>
+            <tr class="c8">
+                <td class="bigCell">
+                    <p>
+                        <span>
+                        </span>
+                    </p>
+                </td>
+                <td class="bigCell">
+                    <p class="c4 right">
+                        <span>Invoice #<%= @invoice.invoiceid %></span>
+                    </p>
+                    <p class="c4 right">
+                        <span>Date: <%= @invoice.updated_at.strftime('%a, %d %b %Y') %></span>
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="c1">
+        <span>
+        </span>
+    </p>
+    <table cellpadding="0" cellspacing="0" class="c3 noborder">
+        <tbody>
+            <tr class="c8">
+                <td class="bigCell">
+                    <h2 class="c4">
+                        <span>To:</span>
+                    </h2>
+                    <p class="c4">
+                        <span><%= @invoice.recipient.name %></span>
+                    </p>
+                    <p class="c4">
+                        <span class="c16"><%= @invoice.recipient.address_1 %></span>
+                    </p>
+                    <p class="c4">
+                        <span class="c16"><%= @invoice.recipient.city %>, <%= @invoice.recipient.state %> <%= @invoice.recipient.zip %></span>
+                    </p>
+                    <p class="c4">
+                        <span>410-465-4880</span>
+                    </p>
+                </td>
+                <td class="bigCell">
+                    <h2 class="c4">
+                        <span>&nbsp; </span>
+                    </h2>
+                    <p class="c4">
+                        <span>&nbsp; </span>
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="c1">
+        <span>
+        </span>
+    </p>
+    <p class="c1">
+        <span>
+        </span>
+    </p>
+    <table cellpadding="0" cellspacing="0" class="c3 outside">
+        <tbody>
+            <tr class="c8">
+                <th class="c9">
+                    <p class="c4 c7">
+                    <span class="c16">DESCRIPTION</span>
+                    </p>
+                    </td>
+                <th class="c14">
+                    <p class="c4 c7">
+                    <span class="c16">HOURS</span>
+                    </p>
+                </td>
+                <th class="c14">
+                    <p class="c4 c7">
+                    <span class="c16">RATE</span>
+                    </p>
+                </td>
+                <th class="c14">
+                    <p class="c4 c7">
+                    <span class="c16">AMOUNT</span>
+                    </p>
+                </td>
+            </tr>
+            <% @total=0.0
+               @rows=12 %>
+            <% @invoice.line_items.each do |line_item|  %>
+            <tr class="c8">
+                <td class="c9">
+                <p class="c4">
+                <span><%= line_item.description.title %></span>
+                </p>
+                </td>
+                <td class="c0">
+                <p class="c4">
+                <span><%= line_item.hours %></span>
+                </p>
+                </td>
+                <td class="c0">
+                <p class="c4 right">
+                <span>$<%= line_item.description.rate %></span>
+                </p>
+                </td>
+                <td class="c0">
+                <p class="c4 right">
+                <span>$<%= (line_item.description.rate*line_item.hours).to_s.gsub(/(\d)(?=\d{3}+(\.\d*)?$)/, '\1,') %></span>
+                </p>
+                </td>
+            </tr>
+                <% @total += line_item.description.rate*line_item.hours 
+                   @rows -= 1 %>
+            <% end %>
+            <% @rows.times do %>
+            <tr class="c8">
+                <td class="c9">
+                <p class="c4">
+                <span>&nbsp;</span>
+                </p>
+                </td>
+                <td class="c0">
+                <p class="c4">
+                <span>&nbsp;</span>
+                </p>
+                </td>
+                <td class="c0">
+                <p class="c4 right">
+                <span>&nbsp;</span>
+                </p>
+                </td>
+                <td class="c0">
+                <p class="c4 right">
+                <span>&nbsp;</span>
+                </p>
+                </td>
+            </tr>
+            <% end %>
+            </tbody></table>
+            <table class="noborder" cellspacing="0"><tbody>
+            <tr class="c8">
+                <td class="c5">
+                <p class="c1">
+                <span>
+                </span>
+                </p>
+                </td>
+                <td class="c0 bleft bbottom">
+                <h3 class="c4 right">
+                <span>TOTAL</span>
+                </h3>
+                </td>
+                <td class="c0 bbottom">
+                <p class="c1 c18">
+                <span>
+                </span>
+                </p>
+                </td>
+                <td class="c24 bbottom bright">
+                <p class="c4 right">
+                <span>$<%= @total.to_s.gsub(/(\d)(?=\d{3}+(\.\d*)?$)/, '\1,') %></span>
+                </p>
+                </td>
+            </tr>
+            </tbody>
+            </table>
+            <p class="c1">
+            <span>
+            </span>
+            </p>
+    <p class="c1">
+        <span>
+        </span>
+    </p>
+</div>

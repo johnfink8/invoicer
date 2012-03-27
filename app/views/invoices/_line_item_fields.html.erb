@@ -1,0 +1,7 @@
+  <p>
+      <%= f.collection_select :description_id, LineDescription.all, :id, :title, :prompt => true %>
+      <%= f.label :hours %> 
+      <%= f.number_field :hours %> 
+      <%= f.check_box :_destroy %>
+      <%= f.label :_destroy, "Remove" %>
+  </p>
